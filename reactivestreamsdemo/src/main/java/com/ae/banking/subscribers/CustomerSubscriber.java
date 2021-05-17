@@ -29,7 +29,14 @@ public class CustomerSubscriber implements Subscriber<Customer> {
 		System.out.println("Data arriving....");
 		counter++;
 		this.subscription.request(1);
-		System.out.println("OnNext Subscribed for data...."+counter);
+		try {
+			Thread.sleep(1000);
+			System.out.println("OnNext Subscribed for data...."+counter);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override

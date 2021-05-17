@@ -1,6 +1,7 @@
 package com.ae.banking.utility;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.SubmissionPublisher;
 
 import com.ae.banking.helpers.CustomerDataHelper;
@@ -18,7 +19,7 @@ public class ReactivePubSubProcessor {
 
 		// Create Processor
 		CustomerProcessor transformProcessor = new CustomerProcessor(s -> {
-			return new PlatinumCustomer(s.getCustomerId(), s.getName(),s.getPhoneNo(),null );
+			return new PlatinumCustomer(s.getCustomerId(), s.getName(),s.getPhoneNo(),"offer "+new Random().nextInt(100));
 		});
 
 		//Create End Subscriber
