@@ -15,7 +15,7 @@ public class BackPressureBuffer {
 		Flowable<Object> flowableAsyncBackp = Flowable.create(emitter -> {
  
 			// Publish 1000 numbers
-			for (int i = 0; i < 999_000_000; i++) {
+			for (int i = 0; i < 1_000; i++) {
 				System.out.println(Thread.currentThread().getName() + " | Publishing = " + i);
 				emitter.onNext(i);
 				// Thread.sleep(10);
