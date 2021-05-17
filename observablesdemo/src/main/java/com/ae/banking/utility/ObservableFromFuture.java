@@ -19,11 +19,11 @@ public class ObservableFromFuture {
 		//Thread pool
 		ScheduledExecutorService scheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
 		
-		Future future=scheduledExecutorService.schedule(()->new CreditCard(239649732L,
+		Future<CreditCard> future=scheduledExecutorService.schedule(()->new CreditCard(239649732L,
 				"Parameswari",500000,LocalDate.now()), 1, TimeUnit.NANOSECONDS);
 		
 		Observable<CreditCard> observable=Observable.from(future);		
-		observable.subscribe(item -> System.out.println(item), error -> error.printStackTrace(), 
+		observable.subscribe(item -> System.out.println(item.getCustomerName()), error -> error.printStackTrace(), 
 			    () -> System.out.println("Done"));
 		
 		
