@@ -8,7 +8,7 @@ import com.ae.banking.subscribers.CustomerSubscriber;
 
 public class ReactiveAppPubSubDemo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
         //publisher 
 		SubmissionPublisher<Customer> publisher= new SubmissionPublisher<Customer>();
@@ -19,9 +19,10 @@ public class ReactiveAppPubSubDemo {
 		//publishing the data
 	   CustomerDataHelper.getAllCustomers().stream().forEach(c->publisher.submit(c));
 	   
-	   
+	  while( CustomerDataHelper.getAllCustomers().size()!=subscriber.getCounter())
+		  Thread.sleep(1000);
 		
-		
+		publisher.close();
 		
 	}
 
