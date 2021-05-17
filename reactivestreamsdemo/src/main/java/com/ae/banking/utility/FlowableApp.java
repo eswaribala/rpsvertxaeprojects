@@ -1,12 +1,8 @@
 package com.ae.banking.utility;
-
-
 import com.ae.banking.publishers.ProducerFlowable;
 import com.ae.banking.subscribers.ConsumerFlowable;
 
 import io.reactivex.schedulers.Schedulers;
-
-
 
 
 public class FlowableApp {
