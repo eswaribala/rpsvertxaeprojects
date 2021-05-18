@@ -27,13 +27,9 @@ public class ProductController {
 		return this.productService.add(product);
 	}
 	@GetMapping("/products/{id}")
-	public ResponseEntity<?> getProductById(@PathVariable("id") long id){
-		Mono<Product> product=this.productService.getProductById(id);
-		HttpStatus status = product != null ? HttpStatus.OK : HttpStatus.NOT_FOUND;
-		if(product!=null)
-			return ResponseEntity.status(status).body(product);
-		else
-			return ResponseEntity.status(status).body("Product Not Found");			
+	public Mono<Product> getProductById(@PathVariable("id") long id){
+		return this.productService.getProductById(id);		
+					
 	}
 	
 	@GetMapping("/products")
