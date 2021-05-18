@@ -14,9 +14,9 @@ public class ProductService implements IProductService{
     @Autowired
 	private ProductRepository productRepository;
 	@Override
-	public void add(Product product) {
+	public Mono<Product> add(Product product) {
 		// TODO Auto-generated method stub
-		this.productRepository.insert(product);
+		return this.productRepository.insert(product);
 	}
 
 	@Override

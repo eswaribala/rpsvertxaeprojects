@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 
 public interface IProductService {
 	
-	void add(Product product);
+	Mono<Product> add(Product product);
 	Flux<Product> getAllProducts();
 	Mono<Product> getProductById(long id); //zero or one
 	Flux<Product> getProductByName(String name);

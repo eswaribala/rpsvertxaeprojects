@@ -15,16 +15,16 @@ import com.ae.inventoryapi.services.ProductService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
+import org.springframework.http.HttpStatus;
 @RestController
 public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
 	@PostMapping("/products")
-	@ResponseBody()
-	public void addProduct(@RequestBody Product product) {
-		this.productService.add(product);
+
+	public Mono<Product> addProduct(@RequestBody Product product) {
+		return this.productService.add(product);
 	}
 	@GetMapping("/products/{id}")
 	public ResponseEntity<?> getProductById(@PathVariable("id") long id){
