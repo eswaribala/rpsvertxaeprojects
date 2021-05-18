@@ -8,7 +8,14 @@ public class LoanVerticle extends AbstractVerticle{
 	public void start() throws Exception {
 		// TODO Auto-generated method stub
 		super.start();
-		System.out.println("Entering into Verticle");
+		System.out.println("Entering into  Loan Verticle");
+		/*
+		vertx.deployVerticle(new ForexVerticle(),stringAsyncResult->{
+			System.out.println("Forex verticle deployment done");
+		});
+		*/
+		vertx.eventBus().publish("EMINotification", "Due Date Approaching, Keep Sufficient Balance");
+		vertx.eventBus().send("EMINotification", "Overdue, Keep Sufficient Balance");
 	}
 
 	@Override
