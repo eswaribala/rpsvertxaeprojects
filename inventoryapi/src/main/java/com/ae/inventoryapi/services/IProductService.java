@@ -12,7 +12,7 @@ public interface IProductService {
 	Mono<Product> getProductById(long id); //zero or one
 	Flux<Product> getProductByName(String name);
 	Mono<Product> updateProduct(Product product);
-	boolean deleteProduct(long id);
+	Mono<Void> deleteProduct(long id);
 	
 
 }
