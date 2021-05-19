@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
+import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.eventbus.MessageProducer;
 
 public class PointToPointMessageProducerExample {
@@ -24,6 +25,7 @@ public class PointToPointMessageProducerExample {
     public void start(final Promise<Void> startPromise) throws Exception {
       startPromise.complete();
       messageProducer = vertx.eventBus().sender(Sender.class.getName());
+      
       vertx.setPeriodic(1000, id -> {
         // Send a message every second
         messageProducer.write("Sending a message...");

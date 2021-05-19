@@ -50,7 +50,7 @@ public class PointToPointExample {
               .put("name", Receiver.class.getSimpleName());
             
       vertx.eventBus().<String>consumer("Note", message -> {
-        LOG.debug("Received: {}",json, message.body());
+        LOG.debug("Received: {}->{}",json,message.body());
       });
     }
   }
