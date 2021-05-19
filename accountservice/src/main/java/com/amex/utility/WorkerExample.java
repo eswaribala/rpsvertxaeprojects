@@ -21,7 +21,7 @@ public class WorkerExample extends AbstractVerticle {
   public void start(final Promise<Void> startPromise) throws Exception {
     vertx.deployVerticle(new WorkerVerticle(),
       new DeploymentOptions()
-        .setWorker(true)
+       .setWorker(true)
         .setWorkerPoolSize(1)
         .setWorkerPoolName("my-worker-verticle")
     );

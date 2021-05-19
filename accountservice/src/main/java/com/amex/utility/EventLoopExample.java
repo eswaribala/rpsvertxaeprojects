@@ -34,6 +34,6 @@ public class EventLoopExample extends AbstractVerticle {
     LOG.debug("Start {}", getClass().getName());
     startPromise.complete();
     // Do not do this inside a verticle
-  // Thread.sleep(5000);
+   Thread.sleep(5000);
   }
 }
