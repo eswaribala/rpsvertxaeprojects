@@ -35,9 +35,10 @@ public class WebSocketHandler implements Handler<ServerWebSocket> {
     });
     ws.exceptionHandler(err -> LOG.error("Failed: ", err));
     ws.writeTextMessage("Connected!");
+    //periodic broadcast gets connected instances
     broadcast.register(ws);
   }
-
+//on message from client
   private Handler<WebSocketFrame> frameHandler(final ServerWebSocket ws) {
     return received -> {
       final String message = received.textData();
