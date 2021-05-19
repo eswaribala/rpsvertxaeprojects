@@ -23,8 +23,20 @@ public class MainVerticle extends AbstractVerticle {
   @Override
   public void start(final Promise<Void> startPromise) throws Exception {
     LOG.debug("Start {}", getClass().getName());
-    vertx.deployVerticle(new VerticleA());
-    vertx.deployVerticle(new VerticleB());
+    vertx.deployVerticle(new VerticleA(),
+    new DeploymentOptions()
+    .setConfig(new JsonObject()
+            .put("id", UUID.randomUUID().toString())
+            .put("name", VerticleA.class.getSimpleName())
+          ));
+    vertx.deployVerticle(new VerticleB(),
+    		
+    new DeploymentOptions()
+    .setConfig(new JsonObject()
+            .put("id", UUID.randomUUID().toString())
+            .put("name", VerticleB.class.getSimpleName())
+          ));
+    //scaling
     vertx.deployVerticle(VerticleN.class.getName(),
       new DeploymentOptions()
         .setInstances(4)

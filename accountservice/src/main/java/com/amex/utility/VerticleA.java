@@ -13,6 +13,7 @@ public class VerticleA extends AbstractVerticle {
   @Override
   public void start(final Promise<Void> startPromise) throws Exception {
     LOG.debug("Start {}", getClass().getName());
+    LOG.debug("Start {} with config {}", getClass().getName(), config().toString());
     vertx.deployVerticle(new VerticleAA(), whenDeployed -> {
       LOG.debug("Deployed {}", VerticleAA.class.getName());
       vertx.undeploy(whenDeployed.result());
