@@ -45,8 +45,12 @@ public class PointToPointExample {
     @Override
     public void start(final Promise<Void> startPromise) throws Exception {
       startPromise.complete();
+      JsonObject json=new JsonObject()
+              .put("id", UUID.randomUUID().toString())
+              .put("name", Receiver.class.getSimpleName());
+            
       vertx.eventBus().<String>consumer("Note", message -> {
-        LOG.debug("Received: {}", message.body());
+        LOG.debug("Received: {}",json, message.body());
       });
     }
   }
