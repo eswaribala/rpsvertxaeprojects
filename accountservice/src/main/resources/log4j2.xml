@@ -7,7 +7,7 @@
   </Appenders>
   <Loggers>
 
-    <Logger name="com.rps.newbie" level="DEBUG" />
+    <Logger name="com.amex.utility" level="DEBUG" />
 
     <Root level="INFO">
       <AppenderRef ref="Console"/>
