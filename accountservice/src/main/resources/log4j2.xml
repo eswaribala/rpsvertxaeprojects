@@ -7,7 +7,7 @@
   </Appenders>
   <Loggers>
 
-    <Logger name="com.amex.utility" level="DEBUG" />
+    <Logger name="com.amex" level="DEBUG" />
 
     <Root level="INFO">
       <AppenderRef ref="Console"/>
