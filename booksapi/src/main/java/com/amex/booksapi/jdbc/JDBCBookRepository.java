@@ -22,10 +22,10 @@ public class JDBCBookRepository {
 
   public JDBCBookRepository(final Vertx vertx) {
     final JsonObject config = new JsonObject();
-    config.put("url", "jdbc:mysql://localhost:3306/vertxbooks?useSSL=true");
+    config.put("url", "jdbc:mysql://mysql:3306/vertxbooks?useSSL=true");
     //config.put("driver_class", "com.mysql.jdbc.Driver");
     config.put("user", "root");
-    config.put("password", "vignesh"); //For production manage password in config file or through env
+    config.put("password", "password"); //For production manage password in config file or through env
     sql = JDBCClient.createShared(vertx, config);
   }
   /*
